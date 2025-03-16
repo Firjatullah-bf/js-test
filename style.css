@@ -1,0 +1,18 @@
+.profile-picture {
+    width: 150px; /* Ukuran gambar */
+    height: 150px; /* Ukuran gambar */
+    border-radius: 50%; /* Membuat gambar berbentuk bulat */
+    overflow: hidden; /* Menghindari konten yang melampaui batas */
+    border: 2px solid #ccc; /* Border untuk gambar */
+    margin: 0 auto; /* Mengatur margin agar berada di tengah */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Memberikan efek bayangan */
+    
+}
+
+.profile-picture img {
+    width: 100%; /* Mengatur lebar gambar agar sesuai dengan kontainer */
+    height: auto; /* Mengatur tinggi gambar secara otomatis */
+}
+.profile {
+    text-align: center;
+}
