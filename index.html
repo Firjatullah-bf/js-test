@@ -8,32 +8,31 @@
     <script src="script.js"></script>
   </head>
   <body>
+    <nav>
+      <h1>Firjatullah Bahy Fawwaz</h1>
+      <p>Check my social media</p>
+      <a href="https://github.com/Firjatullah-bf"><img src="github_PNG80.png" alt="github" class="sosmed-icon"></a>
+      <a href="https://www.instagram.com/pirjaajah/"><img src="instagram-icon-2048x2048-uc6feurl.png" alt="instagram" class="sosmed-icon"></a>
+    </nav>
     <div class="profile">
       <img src="icon.jpg" class="profile-picture" />
       <h1>Firjatullah Bahy Fawwaz</h1>
       <h2>235314111</h2>
     </div>
-    <div class="content">
-
-      <form onsubmit="event.preventDefault();generateTable();">
-      
+    <div class="identity">
+      <form onsubmit="event.preventDefault(); generateForm()">
         <label for="nama">Nama : </label>
-        <input type="text" id="nama" name="nama" required /><br /><br />
+        <input type="text" id="nama" required /><br /><br />
 
         <label for="pilihan">Jumlah Pilihan : </label>
-        <input type="number" id="pilihan" name="pilihan" required min="1" /><br /><br />
+        <input type="number" id="pilihan" required min="1" /><br /><br />
 
         <button type="submit" id="ok1">Ok</button>
-      
       </form>
-      
-      <div id="content1" style="display: none;"></div>
-      
-      <div id="submitShow" style="display: none;">
-      </div>
-      
-      <div id="result"></div>
-    
+
+      <div id="dataInput" style="display: none"></div>
+      <div id="dropDown" style="display: none"></div>
+      <div id="result" style="display: none"></div>
     </div>
   </body>
 </html>

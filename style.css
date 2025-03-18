@@ -1,22 +1,120 @@
-.profile-picture {
-    width: 150px; /* Ukuran gambar */
-    height: 150px; /* Ukuran gambar */
-    border-radius: 50%; /* Membuat gambar berbentuk bulat */
-    overflow: hidden; /* Menghindari konten yang melampaui batas */
-    border: 2px solid #ccc; /* Border untuk gambar */
-    margin: 0 auto; /* Mengatur margin agar berada di tengah */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Memberikan efek bayangan */
-    
+
+body {
+    font-family: 'Arial', sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-color: #000000; 
+    color: #ecf0f1; 
 }
 
-.profile-picture img {
-    width: 100%; /* Mengatur lebar gambar agar sesuai dengan kontainer */
-    height: auto; /* Mengatur tinggi gambar secara otomatis */
+h1, h2, h3 {
+    margin: 0; 
+    color: #ffffff ;
 }
+
+p {
+    line-height: 1.6; 
+}
+
+
+nav {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    background-color: #3e4348; 
+    padding: 15px 20px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+nav h1 {
+    color: #ffffff; 
+    font-size: 24px; 
+}
+
+nav p {
+    color: #bdc3c7; 
+    font-size: 14px;
+}
+
+nav .sosmed-icon {
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%; 
+    margin-left: 0px; 
+    transition: transform 0.2s; 
+}
+
+nav .sosmed-icon:hover {
+    transform: scale(1.1); 
+}
+
+
 .profile {
-    text-align: center;
-}
-.content {
-    text-align: center;
+    text-align: center; 
+    margin: 20px; 
 }
 
+.profile-picture {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    overflow: hidden;
+    border: 2px solid #fdfdfd; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+
+.identity {
+    text-align: center; 
+    margin: 20px; 
+}
+
+#result {
+    background-color: #3e4348; 
+    border: 2px solid  #3e4348; 
+    padding: 15px; 
+    border-radius: 5px; 
+    margin-top: 20px; 
+    color: #ecf0f1; 
+    font-weight: bold; 
+}
+
+button {
+    background-color:  #3e4348; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+button:hover {
+    background-color:  #3e4348; 
+}
+
+
+select {
+    background-color: #3e4348; 
+    color: #ecf0f1; 
+    border: 2px solid #fdfdfd; 
+    border-radius: 5px; 
+    padding: 10px; 
+    font-size: 16px; 
+    appearance: none; 
+    width: 100%; 
+    cursor: pointer; 
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+
+select:hover {
+    background-color: #34495e; 
+    border-color: #3e4348; 
+}
+
+select:focus {
+    outline: none;
+    border-color: #3e4348; 
+    box-shadow: 0 0 5px #3e4348;
+}

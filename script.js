@@ -1,69 +1,72 @@
-let inputValue = [];
-
-function generateTable() {
+function generateForm() {
   document.getElementById("nama").disabled = "true";
   document.getElementById("pilihan").disabled = "true";
   document.getElementById("ok1").hidden = "true";
-  let generateTable = document.getElementById("content1");
+
+  let showInput = document.getElementById("dataInput");
+  showInput.innerHTML = `<h3>Masukkan Data Pilihan Yang Akan Dipilih</h3>`;
   let pilihan = document.getElementById("pilihan").value;
-  generateTable.innerHTML = "";
+
+  showInput.innerHTML += "";
 
   for (let i = 1; i <= pilihan; i++) {
-    let label = document.createElement("label");
-    label.textContent = "Pilihan " + i + ": ";
-    let input = document.createElement("input");
-
-    input.name = "Pilihan " + i;
-    input.type = "text";
-    input.required = true;
-
-    input.addEventListener("input", function () {
-      inputValue[i] = input.value;
-    });
-
-    generateTable.appendChild(label);
-    generateTable.appendChild(input);
-    generateTable.appendChild(document.createElement("br"));
-    generateTable.appendChild(document.createElement("br"));
+    showInput.innerHTML += `<label for="pilihan${i}">Pilihan ${i} : </label>
+          <input type="text" name="Pilihan ${i}" id="pilihan${i}" required /><br /><br />`;
   }
 
-  document.getElementById("submitShow").style.display = "block";
+  showInput.innerHTML += `<button type="submit" id="ok2" onclick="generateDropDown()">Ok</button>`;
+  showInput.style.display = "block";
 }
 
-function generateDropDownAndResult() {
-  document.querySelectorAll("button").forEach(btn => btn.style.display = "none");
+function generateDropDown() {
+  document.getElementById("ok2").hidden = "true";
+  let pilihan = document.getElementById("pilihan").value;
 
-  let generateOptions = document.getElementById("content1");
-  generateOptions.innerHTML = "";
+  let opsi = [];
   
+  for (let i = 1; i <= pilihan; i++) {
+    let input = document.getElementById(`pilihan${i}`);
+    let value = input.value.trim();
+    opsi.push(value);
+    input.disabled = true;
+}
+
+  let dropDown = document.getElementById("dropDown");
+  dropDown.innerHTML = `<h3>Pilih Pilihan</h3>`;
   let select = document.createElement("select");
-  select.id = "dropdownOptions"; 
-  
-  for (let i = 1; i <= inputValue.length; i++) {
-    if (inputValue[i]) { 
-      let option = document.createElement("option");
-      option.value = inputValue[i]; 
-      option.textContent = inputValue[i]; 
-      select.appendChild(option); 
-    }
-  }
-  select.addEventListener('change',function(){
-    const selectedValue = select.value;
-    showResult(selectedValue);
-  })
-  generateOptions.style.display = "block";
+  select.id = "dropdown";
 
-  generateOptions.appendChild(select); // Add the select to the content area
-  generateOptions.appendChild(document.createElement("br")); // Add a line break
-  document.getElementById("submitButton").style.display = "block";
 
-  
-}
-function showResult(pilihan){
-  let result = document.getElementById("Result");
-  let nama = document.getElementsById("nama").value;
+  opsi.forEach((pilihanItem) => {
+    let option = document.createElement("option");
+    option.value = pilihanItem;
+    option.textContent = pilihanItem;
+    select.appendChild(option);
+  });
 
-  result.innerHTML = "";
+  dropDown.appendChild(select);
 
+  let defaultOption = document.createElement("option");
+  defaultOption.textContent = "Pilih";
+  defaultOption.value = "";
+  defaultOption.disabled = true;
+  defaultOption.selected = true;
+  select.appendChild(defaultOption);
+
+  dropDown.appendChild(select);
+  dropDown.style.display = "block";
+
+  dropDown.addEventListener('change', function() {
+    const selected = select.value;
+    generateResult(selected,opsi);
+  });
 }
 
+function generateResult(result,opsi) {
+  let resultDiv = document.getElementById("result");
+  let nama = document.getElementById("nama").value;
+  let pilihan = document.getElementById("pilihan").value;
+  resultDiv.innerHTML = `<h3>Result</h3>`; 
+  resultDiv.innerHTML += `<p>Halo nama saya ${nama}, saya sejumlah ${pilihan} pilihan yaitu ${opsi.join(" ,")} saya memilih ${result}</p>`;
+  resultDiv.style.display = "block"; 
+}
