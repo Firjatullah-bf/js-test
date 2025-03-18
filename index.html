@@ -14,23 +14,26 @@
       <h2>235314111</h2>
     </div>
     <div class="content">
-      <form action="">
-        <table>
-          <tr>
-            <td>Nama :</td>
-            <td>
-              <input type="text" id="nama" name="nama" required/>
-            </td>
-          </tr>
-          <tr>
-            <td>Jumlah Pilihan :</td>
-            <td>
-              <input type="number" id="pilihan" name="pilihan" required min="1" />
-            </td>
-          </tr>
-        </table>
-        <button>Ok</button>
+
+      <form onsubmit="event.preventDefault();generateTable();">
+      
+        <label for="nama">Nama : </label>
+        <input type="text" id="nama" name="nama" required /><br /><br />
+
+        <label for="pilihan">Jumlah Pilihan : </label>
+        <input type="number" id="pilihan" name="pilihan" required min="1" /><br /><br />
+
+        <button type="submit" id="ok1">Ok</button>
+      
       </form>
+      
+      <div id="content1" style="display: none;"></div>
+      
+      <div id="submitShow" style="display: none;">
+      </div>
+      
+      <div id="result"></div>
+    
     </div>
   </body>
 </html>
